@@ -1,0 +1,106 @@
+import java.util.Scanner;
+public class rental_if {
+    public static void main (String [] args) {
+        final String toko = ("Rental 88 mobilindo");
+        final String alamat1 = ("Jl. Raya Bogor km. 77");
+        final String alamat2 = ("Jakarta timur 15706");
+        String garis = ("===============================================================");
+        String namacos,jenis,driver;
+        String tgl,kembali;
+        int telat,mobil,paket,durasi;
+        int subsewa,subdenda,subtotal,denda;
+        Scanner keyboard = new Scanner (System.in);
+        System.out.println("==============Data Costumer=============");
+        System.out.print("Nama Costumer                 : ");
+        namacos = keyboard.nextLine();
+        System.out.print("Tanggal Sewa (dd/mm/yy)       : ");
+        tgl = keyboard.next();
+        System.out.print("Lama Sewa (hari) \t           : ");
+        durasi = keyboard.nextInt();
+        System.out.print("Tanggal kembali (dd/mm/yy)    : ");
+        kembali = keyboard.next();
+        System.out.print("Waktu Keterlambatan (hari)    :");
+        telat = keyboard.nextInt();
+        
+        System.out.println ("============Data Kendaraan=============");
+        System.out.println ("1. All new Avanza");
+        System.out.println ("2. Terios");
+        System.out.println ("3. Xpander");
+        System.out.println (" ");
+        System.out.print ("Mobil Yang disewa (1/2/3)    : ");
+        mobil = keyboard.nextInt();
+        System.out.println (" ");
+        
+        System.out.println ("=============Tipe Paket===============");
+        System.out.println ("1. Rental dgn Driver");
+        System.out.println ("2. Rental tanpa Driver");
+        System.out.println (" ");
+        System.out.print ("Paket yang diambil (1/2)     :");
+        paket = keyboard.nextInt();
+        System.out.println(" ");
+        
+        if (mobil <2){
+            if (paket <2){
+                driver = "Rental dng driver";
+                jenis = "all new avanza";
+                mobil = 350000;
+            }else{
+                driver = "Rental tanpa driver";
+                jenis = "all new avanza";
+                mobil = 250000;
+            }
+        }else if (mobil >2){
+            if (paket <2){
+                driver = "Rental dng driver";
+                jenis = "Terios";
+                mobil = 450000;
+            }else{
+                driver = "Rental tanpa driver";
+                jenis = "Terios";
+                mobil = 400000;
+            }
+        }else {
+            if (paket <2){
+                driver = "Rental dng driver";
+                jenis = "Xpander";
+                mobil = 400000;
+            }else{
+                driver = "Rental tanpa driver";
+                jenis = "Xpander";
+                mobil = 350000;
+            }
+        }
+        
+        subsewa = mobil * durasi;
+        denda = (mobil/10);
+        subdenda = telat * denda;
+        subtotal = subsewa + subdenda;
+        
+        System.out.println (" ");
+        System.out.println ("\f");
+        System.out.println (" I N V O I C E ");
+        System.out.println (" ");
+        System.out.println (" ");
+        System.out.println (toko);
+        System.out.println (alamat1);
+        System.out.println (alamat2);
+        System.out.println (garis);
+        System.out.println ("|  Tanggal         |       Keterangan                  |   Sub Total   |");
+        System.out.println (garis);
+        System.out.println ("|  "+kembali+"\t   |  Nama Penyewa : "+namacos+"       |               |");
+        System.out.println ("|                  | Jenis Mobil : "+jenis+"           |               |");
+        System.out.println ("|                  | Paket : "+driver+" \t| \t|");
+        System.out.println ("|                  |                                   |               |");
+        System.out.println ("|                  | Tanggal Sewa = "+tgl+"            |               |");
+        System.out.println ("|                  | Durasi (hari) = "+durasi+"        |   "+subsewa+" |");
+        System.out.println ("|                  | Biaya perhari = "+mobil+"         |   "+subdenda+"|");
+        System.out.println ("|                  | Tanggal Kembali = "+kembali+"     |               |");
+        System.out.println ("|                  | Keterlambatan = "+telat+"         |   "+subdenda+"|");
+        System.out.println ("|                  | Denda= "+denda+"                  |               |");
+        System.out.println (garis);
+        System.out.println ("|                  |                                   |Total = "+subtotal+" |");
+        System.out.println (garis);
+        System.out.println (" ");
+        System.out.println (" ");
+    }
+}
